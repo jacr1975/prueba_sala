@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+
+    <h:head>
+        <f:facet name="first">
+            <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+            <title>PrimeFaces</title>
+        </f:facet>
+
+
+    </h:head>
+
+    <h:body>
+
+        <p:layout fullPage="true">
+
+            <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+                Prueba sala de asientos
+            </p:layoutUnit>
+
+            <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
+                Presentado por Jaime Andres Carvajal
+            </p:layoutUnit>
+
+
+
+            <p:layoutUnit position="center">
+
+                <h:form id="form">
+                    <p:growl id="growl" showDetail="true" />              
+
+                    <p:outputPanel id="Detail" style="text-align:center;">
+                        <p:panelGrid  columns="2" >
+                            <p:outputLabel for="nombre" value="Nombre" />
+                            <p:inputText id="nombre" value="#{sala.us.nombre}">
+                            </p:inputText>
+
+                            <p:outputLabel for="ciudad" value="Ciudad" />
+                            <p:inputText id="ciudad" value="#{sala.us.ciudad}">
+                            </p:inputText>
+
+                            <p:outputLabel for="direccion" value="Direccion" />
+                            <p:inputText id="direccion" value="#{sala.us.direccion}">
+                            </p:inputText>
+                        </p:panelGrid>
+                    </p:outputPanel>
+
+                    <p:commandButton  update="userList"  value="Add" action="#{sala.addUsuario}">
+                    </p:commandButton>
+                    <br/>
+
+                    <p:dataTable id="userList" var="user" value="#{sala.usuarios}" style="margin-bottom: 20px">
+                        <p:column headerText="Id">
+                            <h:outputText value="#{user.id}"/>
+                        </p:column>
+                        <p:column headerText="Nombre">
+                            <h:outputText value="#{user.nombre}"/>        
+                        </p:column>
+                        <p:column headerText="Ciudad">
+                            <h:outputText value="#{user.ciudad}"/>
+                        </p:column>
+                        <p:column headerText="Direccion">
+                            <h:outputText value="#{user.direccion}"/>        
+                        </p:column>         
+
+
+                        <p:column >
+                            <p:commandButton update="userList" value="Delete" icon="ui-icon-closethick"
+                                             action="#{sala.deleteUsuario(user)}"
+                                             styleClass="ui-priority-primary">
+                            </p:commandButton>
+                        </p:column>
+                        
+                        <p:column >
+                            <p:commandButton  value="Mostar" icon="ui-icon-closethick"
+                                              action="#{sala.mostrarSala(user)}"
+                                             styleClass="ui-priority-primary">
+                            </p:commandButton>
+                        </p:column>                        
+                        
+                    </p:dataTable>
+                    <br/>
+
+                </h:form>
+
+
+            </p:layoutUnit>
+
+        </p:layout>
+
+    </h:body>
+
+
+</html>
+

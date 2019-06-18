@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+
+        <style type="text/css">
+            .vacio {
+                background-color: #0000ff !important;
+                color: #000000  !important;
+            }
+            .reservado {
+                background-color: #00ff00 !important;
+                color: #000000 !important;
+            }
+            .ocupado {
+                background-color: #ff0000 !important;
+                color: #000000 !important;
+            }
+
+        </style>
+
+    </h:head>
+    <h:body>
+
+
+        <h:link outcome="welcome" value="Volver a Inicio" />
+                <br />
+        <h:form id="form">
+
+
+            <p:dataTable id="filaList" var="fila" value="#{sala.filas}" style="margin-bottom: 20px" rowStyleClass="">
+
+                <p:column headerText="A" styleClass="#{fila.asi_a.id_usuario == 0 ? 'vacio' : fila.asi_a.id_usuario == fila.asi_a.cont ?'reservado' : fila.asi_a.id_usuario != fila.asi_a.cont ? 'ocupado':null}">
+                    <h:outputText value="#{fila.asi_a.id_as}"  styleClass="#{fila.asi_a.id_usuario == 0 ? 'vacio' : fila.asi_a.id_usuario == fila.asi_a.cont ?'reservado' : fila.asi_a.id_usuario != fila.asi_a.cont ? 'ocupado':null}"/>
+                    <p:commandButton value="Cambiar" id="ajax"  update=":form:filaList" action="#{sala.buttonAction(fila.asi_a.id_as)}" style="margin-right:20px;"  styleClass="#{fila.asi_a.id_usuario == 0 ? 'vacio' : fila.asi_a.id_usuario == fila.asi_a.cont ?'reservado' : fila.asi_a.id_usuario != fila.asi_a.cont ? 'ocupado':null}"/>
+                </p:column>                
+                
+                <p:column headerText="B" styleClass="#{fila.asi_b.id_usuario == 0 ? 'vacio' : fila.asi_b.id_usuario == fila.asi_b.cont ?'reservado' : fila.asi_b.id_usuario != fila.asi_b.cont ? 'ocupado':null}">
+                    <h:outputText value="#{fila.asi_b.id_as}"  styleClass="#{fila.asi_b.id_usuario == 0 ? 'vacio' : fila.asi_b.id_usuario == fila.asi_b.cont ?'reservado' : fila.asi_b.id_usuario != fila.asi_b.cont ? 'ocupado':null}"/>
+                    <p:commandButton value="Cambiar" id="ajax1"  update=":form:filaList" action="#{sala.buttonAction(fila.asi_b.id_as)}" style="margin-right:20px;"  styleClass="#{fila.asi_b.id_usuario == 0 ? 'vacio' : fila.asi_b.id_usuario == fila.asi_b.cont ?'reservado' : fila.asi_b.id_usuario != fila.asi_b.cont ? 'ocupado':null}"/>
+                </p:column>
+
+                 <p:column headerText="C" styleClass="#{fila.asi_c.id_usuario == 0 ? 'vacio' : fila.asi_c.id_usuario == fila.asi_c.cont ?'reservado' : fila.asi_c.id_usuario != fila.asi_c.cont ? 'ocupado':null}">
+                    <h:outputText value="#{fila.asi_c.id_as}"  styleClass="#{fila.asi_c.id_usuario == 0 ? 'vacio' : fila.asi_c.id_usuario == fila.asi_c.cont ?'reservado' : fila.asi_c.id_usuario != fila.asi_c.cont ? 'ocupado':null}"/>
+                    <p:commandButton value="Cambiar" id="ajax2"  update=":form:filaList" action="#{sala.buttonAction(fila.asi_c.id_as)}" style="margin-right:20px;"  styleClass="#{fila.asi_c.id_usuario == 0 ? 'vacio' : fila.asi_c.id_usuario == fila.asi_c.cont ?'reservado' : fila.asi_c.id_usuario != fila.asi_c.cont ? 'ocupado':null}"/>
+                </p:column>               
+                
+                 <p:column headerText="D" styleClass="#{fila.asi_d.id_usuario == 0 ? 'vacio' : fila.asi_d.id_usuario == fila.asi_d.cont ?'reservado' : fila.asi_d.id_usuario != fila.asi_d.cont ? 'ocupado':null}">
+                    <h:outputText value="#{fila.asi_d.id_as}"  styleClass="#{fila.asi_d.id_usuario == 0 ? 'vacio' : fila.asi_d.id_usuario == fila.asi_d.cont ?'reservado' : fila.asi_d.id_usuario != fila.asi_d.cont ? 'ocupado':null}"/>
+                    <p:commandButton value="Cambiar" id="ajax3"  update=":form:filaList" action="#{sala.buttonAction(fila.asi_d.id_as)}" style="margin-right:20px;"  styleClass="#{fila.asi_d.id_usuario == 0 ? 'vacio' : fila.asi_d.id_usuario == fila.asi_d.cont ?'reservado' : fila.asi_d.id_usuario != fila.asi_d.cont ? 'ocupado':null}"/>
+                </p:column>               
+     
+                <p:column headerText="E" styleClass="#{fila.asi_e.id_usuario == 0 ? 'vacio' : fila.asi_e.id_usuario == fila.asi_e.cont ?'reservado' : fila.asi_e.id_usuario != fila.asi_e.cont ? 'ocupado':null}">
+                    <h:outputText value="#{fila.asi_e.id_as}"  styleClass="#{fila.asi_e.id_usuario == 0 ? 'vacio' : fila.asi_e.id_usuario == fila.asi_e.cont ?'reservado' : fila.asi_e.id_usuario != fila.asi_e.cont ? 'ocupado':null}"/>
+                    <p:commandButton value="Cambiar" id="ajax4"  update=":form:filaList" action="#{sala.buttonAction(fila.asi_e.id_as)}" style="margin-right:20px;"  styleClass="#{fila.asi_e.id_usuario == 0 ? 'vacio' : fila.asi_e.id_usuario == fila.asi_e.cont ?'reservado' : fila.asi_e.id_usuario != fila.asi_e.cont ? 'ocupado':null}"/>
+                </p:column>
+
+                <p:column headerText="F" styleClass="#{fila.asi_f.id_usuario == 0 ? 'vacio' : fila.asi_f.id_usuario == fila.asi_f.cont ?'reservado' : fila.asi_f.id_usuario != fila.asi_f.cont ? 'ocupado':null}">
+                    <h:outputText value="#{fila.asi_f.id_as}"  styleClass="#{fila.asi_f.id_usuario == 0 ? 'vacio' : fila.asi_f.id_usuario == fila.asi_f.cont ?'reservado' : fila.asi_f.id_usuario != fila.asi_f.cont ? 'ocupado':null}"/>
+                    <p:commandButton value="Cambiar" id="ajax5"  update=":form:filaList" action="#{sala.buttonAction(fila.asi_f.id_as)}" style="margin-right:20px;"  styleClass="#{fila.asi_f.id_usuario == 0 ? 'vacio' : fila.asi_f.id_usuario == fila.asi_f.cont ?'reservado' : fila.asi_f.id_usuario != fila.asi_f.cont ? 'ocupado':null}"/>
+                </p:column>
+
+                <p:column headerText="G" styleClass="#{fila.asi_g.id_usuario == 0 ? 'vacio' : fila.asi_g.id_usuario == fila.asi_g.cont ?'reservado' : fila.asi_g.id_usuario != fila.asi_g.cont ? 'ocupado':null}">
+                    <h:outputText value="#{fila.asi_g.id_as}"  styleClass="#{fila.asi_g.id_usuario == 0 ? 'vacio' : fila.asi_g.id_usuario == fila.asi_g.cont ?'reservado' : fila.asi_g.id_usuario != fila.asi_g.cont ? 'ocupado':null}"/>
+                    <p:commandButton value="Cambiar" id="ajax6"  update=":form:filaList" action="#{sala.buttonAction(fila.asi_g.id_as)}" style="margin-right:20px;"  styleClass="#{fila.asi_g.id_usuario == 0 ? 'vacio' : fila.asi_g.id_usuario == fila.asi_g.cont ?'reservado' : fila.asi_g.id_usuario != fila.asi_g.cont ? 'ocupado':null}"/>
+                </p:column>
+
+                <p:column headerText="H" styleClass="#{fila.asi_h.id_usuario == 0 ? 'vacio' : fila.asi_h.id_usuario == fila.asi_h.cont ?'reservado' : fila.asi_h.id_usuario != fila.asi_h.cont ? 'ocupado':null}">
+                    <h:outputText value="#{fila.asi_h.id_as}"  styleClass="#{fila.asi_h.id_usuario == 0 ? 'vacio' : fila.asi_h.id_usuario == fila.asi_h.cont ?'reservado' : fila.asi_h.id_usuario != fila.asi_h.cont ? 'ocupado':null}"/>
+                    <p:commandButton value="Cambiar" id="ajax7"  update=":form:filaList" action="#{sala.buttonAction(fila.asi_h.id_as)}" style="margin-right:20px;"  styleClass="#{fila.asi_h.id_usuario == 0 ? 'vacio' : fila.asi_h.id_usuario == fila.asi_h.cont ?'reservado' : fila.asi_h.id_usuario != fila.asi_h.cont ? 'ocupado':null}"/>
+                </p:column>
+
+                <p:column headerText="I" styleClass="#{fila.asi_i.id_usuario == 0 ? 'vacio' : fila.asi_i.id_usuario == fila.asi_i.cont ?'reservado' : fila.asi_i.id_usuario != fila.asi_i.cont ? 'ocupado':null}">
+                    <h:outputText value="#{fila.asi_i.id_as}"  styleClass="#{fila.asi_i.id_usuario == 0 ? 'vacio' : fila.asi_i.id_usuario == fila.asi_i.cont ?'reservado' : fila.asi_i.id_usuario != fila.asi_i.cont ? 'ocupado':null}"/>
+                    <p:commandButton value="Cambiar" id="ajax8"  update=":form:filaList" action="#{sala.buttonAction(fila.asi_i.id_as)}" style="margin-right:20px;"  styleClass="#{fila.asi_i.id_usuario == 0 ? 'vacio' : fila.asi_i.id_usuario == fila.asi_i.cont ?'reservado' : fila.asi_i.id_usuario != fila.asi_i.cont ? 'ocupado':null}"/>
+                </p:column>
+
+                <p:column headerText="J" styleClass="#{fila.asi_j.id_usuario == 0 ? 'vacio' : fila.asi_j.id_usuario == fila.asi_j.cont ?'reservado' : fila.asi_j.id_usuario != fila.asi_j.cont ? 'ocupado':null}">
+                    <h:outputText value="#{fila.asi_j.id_as}"  styleClass="#{fila.asi_j.id_usuario == 0 ? 'vacio' : fila.asi_j.id_usuario == fila.asi_j.cont ?'reservado' : fila.asi_j.id_usuario != fila.asi_j.cont ? 'ocupado':null}"/>
+                    <p:commandButton value="Cambiar" id="ajax9"  update=":form:filaList" action="#{sala.buttonAction(fila.asi_j.id_as)}" style="margin-right:20px;"  styleClass="#{fila.asi_j.id_usuario == 0 ? 'vacio' : fila.asi_j.id_usuario == fila.asi_j.cont ?'reservado' : fila.asi_j.id_usuario != fila.asi_j.cont ? 'ocupado':null}"/>
+                </p:column>                
+
+
+            </p:dataTable>
+
+
+
+
+        </h:form>         
+
+
+
+
+
+
+
+    </h:body>
+
+
+</html>
+

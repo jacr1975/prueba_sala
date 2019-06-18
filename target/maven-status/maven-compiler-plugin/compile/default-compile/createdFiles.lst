@@ -1,0 +1,7 @@
+beans\sala.class
+beans\prueba.class
+beans\usuario.class
+entidades\Asiento.class
+entidades\Fila.class
+ejb\EjbSala.class
+entidades\Usuario.class
